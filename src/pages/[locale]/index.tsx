@@ -1,18 +1,22 @@
+import Link from "next/link";
 import * as React from "react";
 import { FormattedMessage } from "react-intl";
-import Link from "next/link";
-import { Button } from "@material-ui/core"
 
 export default () => {
   return (
     <div>
       <ul>
         <li>
+          <Link as="/" href={{ pathname: "/" }}>
+            <a href="/">index</a>
+          </Link>
+        </li>
+        <li>
           <Link
             as="/en"
             href={{ pathname: "/[locale]", query: { locale: "en" } }}
           >
-            <Button component="a" href="/en">EN</Button>
+            <a href="/en">EN</a>
           </Link>
         </li>
         <li>
@@ -20,7 +24,7 @@ export default () => {
             as="/de"
             href={{ pathname: "/[locale]", query: { locale: "de" } }}
           >
-            <Button component="a" href="/de">DE</Button>
+            <a href="/de">DE</a>
           </Link>
         </li>
       </ul>
