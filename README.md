@@ -14,6 +14,7 @@ There is a lot of accidental complexity in this repository, not all files are re
 - [src/pages/\_document.tsx](src/pages/_document.tsx)
 - [src/pages/\_app.tsx](src/pages/_app.tsx)
 - [src/pages/index.tsx](src/pages/index.tsx)
+- [src/pages/[locale]/index.tsx](src/pages/[locale]/index.tsx)
 - [src/locale.tsx](src/locale.tsx)
 
 # Decision Time
