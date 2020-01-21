@@ -29,6 +29,8 @@ The SSR versions of both options prevent Next.js from performing [Automatic Stat
 
 ---
 
+# DO NOT READ BELOW
+
 Locale is selected through (in order of priority)
 
 - Query Param: `/en/page?locale=fr` will serve the page in french, ie. the explicit query param (`?locale=…`) overwrites the implicit query param in the path (`/[locale]/…`). This form is not expect to be used outside of development or debugging sessions.
