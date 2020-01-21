@@ -11,7 +11,10 @@ When switching then locale, this example performs a full page reload. While it c
 
 There is a lot of accidental complexity in this repository, not all files are relevant to the example. For example you can ignore `next-env.d.ts` and `tsconfig.json` if you are not using TypeScript. If you decide to dive right into the code (which I don't recommend, you should read this README to the end), start with these files:
 
-- [src/pages/_document.tsx](src/pages/_document.tsx)
+- [src/pages/\_document.tsx](src/pages/_document.tsx)
+- [src/pages/\_app.tsx](src/pages/_app.tsx)
+- [src/pages/index.tsx](src/pages/index.tsx)
+- [src/locale.tsx](src/locale.tsx)
 
 # Decision Time
 
