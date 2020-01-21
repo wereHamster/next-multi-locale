@@ -15,7 +15,7 @@ There is one decision you have to make, and relates to the first-load behaviour 
 
 #### Render an empty page and redirect
 
-- SSR: Redirect the client (HTTP 302) to the locale-specific index page (eg. `/en`).
+- SSR: Redirect the client (HTTP 302) to the locale-specific index page (eg. `/en`). If you use the `Accept-Language` header to select the locale make sure to include the `Vary: Accept-Language` header in the response!
 - SSG: Redirect to the locale-specific page using `window.location.pathname = …`.
 
 #### Render the index page in a specific locale, and use `Router.replace()` on the client to fix the path.
