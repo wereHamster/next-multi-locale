@@ -9,6 +9,10 @@ The locale is stored primarily in the first path segment, eg. `/en/about` is use
 
 When switching then locale, this example performs a full page reload. While it certainly would be possible to implement it using a regular Next.js page transition, there are many considirations to take into account. For example the `<html lang=…>` needs to be updated, correct polyfills need to be loaded etc. It's cleaner to forego all of this and do a full page reload.
 
+There is a lot of accidental complexity in this repository, not all files are relevant to the example. For example you can ignore `next-env.d.ts` and `tsconfig.json` if you are not using TypeScript. If you decide to dive right into the code (which I don't recommend, you should read this README to the end), start with these files:
+
+- [src/pages/_document.tsx](src/pages/_document.tsx)
+
 # Decision Time
 
 There is one decision you have to make, and relates to the first-load behaviour of the index (`/`) page. You have two options:
