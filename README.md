@@ -13,12 +13,12 @@ When switching then locale, this example performs a full page reload. While it c
 
 There is one decision you have to make, and relates to the first-load behaviour of the index (`/`) page. You have two options:
 
-#### Render an empty page and redirect
+#### Option 1: Render an empty page and redirect
 
 - SSR: Redirect the client (HTTP 302) to the locale-specific index page (eg. `/en`). If you use the `Accept-Language` header to select the locale make sure to include the `Vary: Accept-Language` header in the response!
 - SSG: Redirect to the locale-specific page using `window.location.pathname = …`.
 
-#### Render the index page in a specific locale, and use `Router.replace()` on the client to fix the path.
+#### Option 2: Render the index page in a specific locale, and use `Router.replace()` on the client to fix the path.
 
 - SSR: Extract the locale from the `Accept-Language` header.
 - SSG: Use the default locale.
