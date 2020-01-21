@@ -25,6 +25,8 @@ There is one decision you have to make, and relates to the first-load behaviour 
 
 Option 1 is simple, but incurs a network around-trip (the FCP/TTI/… times increase by about 15-100ms depending on network conditions) Option 2 immediately renders the page, but in case of SSG the user will be presented the page in the default locale instead of their preferred locale (because we have to decide at SSG time what to render).
 
+The SSR versions of both options prevent Next.js from performing [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization). You will need a server and can't host the website on a static site hoster such as Netlify, Amazon S3 etc.
+
 ---
 
 Locale is selected through (in order of priority)
