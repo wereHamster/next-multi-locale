@@ -23,7 +23,7 @@ There is one decision you have to make, and relates to the first-load behaviour 
 - SSR: Extract the locale from the `Accept-Language` header.
 - SSG: Use the default locale.
 
-Option 1 is simple, but incurs a around-trip. Option 2 immediately renders the page, but in case of SSG the user will be presented the page in the default locale instead of their preferred locale (because we have to decide at SSG time what to render).
+Option 1 is simple, but incurs a around-trip, ie. the FCP/TTI/… times increase by about 15-100ms, depending on network conditions. Option 2 immediately renders the page, but in case of SSG the user will be presented the page in the default locale instead of their preferred locale (because we have to decide at SSG time what to render).
 
 ---
 
