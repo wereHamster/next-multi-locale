@@ -5,7 +5,7 @@ The purpose of this repository is to provide an example how to set up [Next.js][
 
 This example uses [react-intl] as the internationalization (i18n) engine. Most of the code is not specific to react-intl though, so it should be possible without too much effort to switch to something else, such as [lingui].
 
-The locale is stored primarily in the first path segment, eg. `/en/about` is used for the english version of the about page. If you want to store the locale somewhere else, you will need to adjust this example or find different one.
+The locale is stored primarily in the first path segment, eg. `/en/about` is used for the english version of the about page.
 
 When switching then locale, this example performs a full page reload. While it certainly would be possible to implement it using a regular Next.js page transition, there are many considirations to take into account. For example the `<html lang=…>` needs to be updated, correct polyfills need to be loaded etc. It's cleaner to forego all of this and do a full page reload.
 
