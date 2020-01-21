@@ -1,7 +1,7 @@
 The purpose of this repository is to provide an example how to set up [Next.js][nextjs] for multi-locale support, with focus on:
 
  - Semantically correct output, eg. sets `<html lang=…>`
- - Working bundle splitting. Translation strings are loaded dynamically and don't increase the main bundle size.
+ - Working bundle splitting. Translation strings and other locale-specific content is loaded dynamically and doesn't increase the main bundle size.
 
 This example uses [react-intl] as the internationalization (i18n) engine. Most of the code is not specific to react-intl though, so it should be possible without too much effort to switch to something else, such as [lingui].
 
