@@ -12,20 +12,10 @@ export default () => {
           </Link>
         </li>
         <li>
-          <Link
-            as="/en"
-            href={{ pathname: "/[locale]", query: { locale: "en" } }}
-          >
-            <a href="/en">EN</a>
-          </Link>
+          <a href="/en">EN</a>
         </li>
         <li>
-          <Link
-            as="/de"
-            href={{ pathname: "/[locale]", query: { locale: "de" } }}
-          >
-            <a href="/de">DE</a>
-          </Link>
+          <a href="/de">DE</a>
         </li>
       </ul>
       <div>

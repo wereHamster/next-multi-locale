@@ -7,7 +7,6 @@ import Index from "./[locale]/index";
 const Page = ({ locale }) => {
   const router = useRouter();
 
-  console.log("Index Page", { locale });
   React.useEffect(() => {
     // const navigatorLanguage = navigator.language.split("-")[0];
     // const locale = supportedLanguages.includes(navigatorLanguage)
@@ -21,18 +20,7 @@ const Page = ({ locale }) => {
 };
 
 Page.getInitialProps = async (pageContext: NextPageContext) => {
-  const locale = await getLocale(pageContext.query, pageContext.req);
-
-  // if (!process.browser && pageContext.res && pageContext.res.writeHead) {
-  //   pageContext.res.writeHead(302, {
-  //     Location: `/${locale}`,
-  //     Vary: "Accept-Language"
-  //   });
-  //   pageContext.res.end();
-  // }
-
-  console.log("Index Page getInitialProps");
-  return { locale };
+  return { locale: await getLocale(pageContext.query, pageContext.req) };
 };
 
 export default Page;

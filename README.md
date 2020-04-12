@@ -19,21 +19,27 @@ Not all files in this repository are relevant to the example. For example you ca
 
 # Decision Time
 
-There is one decision you have to make, and relates to the first-load behaviour of the index (`/`) page. You have two options:
+There is one decision you have to make, and relates to the first-load behaviour of the index (`/`) page. You have different options, depending on whether your site uses SSR or not.
 
-#### Option 1: Render an empty page and redirect
+#### SSR
 
-- SSR: Redirect the client (HTTP 302) to the locale-specific index page (eg. `/en`). If you use the `Accept-Language` header to select the locale make sure to include the `Vary: Accept-Language` header in the response!
-- SSG: Redirect to the locale-specific page using `window.location.pathname = …`.
+Extract the desired locale from the request (`Accept-Language` header), and render the page in that locale. On the client, replace the URL so that it points to the locale-specific page. When the user reloads the page, they will directly get that page.
+
+Make sure to include the `Vary: Accept-Language` header in the response!
+
+Note that this approach prevents Next.js from performing [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization).
+
+#### Static Export
+
+#### Option 1: Render an empty page and redirect to a supported locale on the client.
+
+Use `window.location.pathname = …` to redirect the user to an appropriate page.
 
 #### Option 2: Render the index page in a specific locale, and use `Router.replace()` on the client to fix the path.
 
-- SSR: Extract the locale from the `Accept-Language` header.
-- SSG: Use the default locale.
+Pick one locale that you want to render the index page in (eg. the locale that you expect most users to use). Then on the client replace the URL with the locale-specific page.
 
-Option 1 is simple, but incurs a network around-trip (the FCP/TTI/… times increase by about 15-100ms depending on network conditions) Option 2 immediately renders the page, but in case of SSG the user will be presented the page in the default locale instead of their preferred locale (because we have to decide at SSG time what to render).
-
-The SSR versions of both options prevent Next.js from performing [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization). You will need a server and can't host the website on a static site hoster such as Netlify, Amazon S3 etc.
+Option 1 is more user-friendly, in that you will honor the users' preferred locale, but incurs a network round-trip (the FCP/TTI/… times increase by about 15-100ms depending on network conditions). Option 2 is better if most of your audience uses a known locale.
 
 ---
 
