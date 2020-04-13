@@ -20,6 +20,15 @@ const Page = ({ locale }) => {
 };
 
 Page.getInitialProps = async (pageContext: NextPageContext) => {
+  if (pageContext.res) {
+    pageContext.res.setHeader(
+      "Vary",
+      [pageContext.res.getHeader("Vary"), "Accept-Language"]
+        .filter(Boolean)
+        .join(",")
+    );
+  }
+
   return { locale: await getLocale(pageContext.query, pageContext.req) };
 };
 
